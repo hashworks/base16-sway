@@ -1,13 +1,12 @@
 # base16-sway
 
-This repository is meant to work with
-[Base16-Shell](https://github.com/tinted-theming) from Tinted Theming. It
-provides a simple template that can be used with the base16 color schemes to
-generate a functional config file for
-[swaywm/sway](https://github.com/swaywm/sway), a tiling and dynamic window
-manager.
+[base16][base16-home-link] template for [sway][sway-link].
 
-## Usage
+This repository is meant to work with [base16][base16-home-link] from Tinted
+Theming. It provides a hook and template that can be used to dynamically load
+base16 color schemes in sway.
+
+## Installation
 
 Clone the repository:
 
@@ -24,10 +23,10 @@ cp ~/.config/base16-sway/hooks/base16-sway.sh ~/.config/base16-shell/hooks
 Re-run your base16 theme to execute the hook:
 
 ```text
-bsse16_tokyo-night-dark
+base16_tokyo-night-dark
 ```
 
-Verify the hook created to the symbolic link to the correct template:
+Verify the hook created the symbolic link to the correct template:
 
 ```text
  sway.base16.conf ⇒ /home/.../.config/base16-sway/themes/base16-tokyo-night-dark.config
@@ -71,3 +70,11 @@ colors {
 
 Reload your config to apply the new colors (default key bind is
 **shift+mod+c**).
+
+## Other
+
+[Original repo][github-sway-repo-link]
+
+[base16-home-link]: https://github.com/base16-project/home
+[sway-link]: https://swaywm.org
+[github-sway-repo-link]: https://github.com/rkubosz/base16-sway
