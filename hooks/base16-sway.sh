@@ -32,3 +32,9 @@ if [ -d "$BASE16_SWAY_THEME_PATH" ]; then
 
 	ln -sf "$BASE16_SWAY_THEME_PATH/base16-$current_theme_name.config" "$BASE16_SHELL_SWAYCONF_PATH"
 fi
+
+# Send sway message to reload config
+pid="$(pgrep sway)"
+if [ -n "$pid" ]; then
+	swaymsg reload
+fi

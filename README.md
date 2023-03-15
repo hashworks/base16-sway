@@ -68,8 +68,8 @@ colors {
 }
 ```
 
-Reload your config to apply the new colors (default key bind is
-**shift+mod+c**).
+If sway is running, the hook will send the message `swaymsg reload` to update
+the theme.
 
 ## Other
 
