@@ -17,7 +17,7 @@ if [ -z "$BASE16_SWAY_THEME_PATH" ]; then
 fi
 
 # If base16-sway path directory doesn't exist, stop hook
-if [ ! -d $BASE16_SWAY_THEME_PATH ]; then
+if [ ! -d "$BASE16_SWAY_THEME_PATH" ]; then
 	return 2
 fi
 
@@ -28,7 +28,7 @@ fi
 # If base16-sway is used, provide a file for base16-sway to source
 if [ -d "$BASE16_SWAY_THEME_PATH" ]; then
 	# Set current theme name
-	read current_theme_name <"$BASE16_SHELL_THEME_NAME_PATH"
+	read -r current_theme_name <"$BASE16_SHELL_THEME_NAME_PATH"
 
 	ln -sf "$BASE16_SWAY_THEME_PATH/base16-$current_theme_name.config" "$BASE16_SHELL_SWAYCONF_PATH"
 fi
