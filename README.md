@@ -17,7 +17,7 @@ git clone https://github.com/freddiehaddad/base16-sway.git ~/.config/base16-sway
 Copy the hook to your base16-shell hooks directory:
 
 ```text
-cp ~/.config/base16-sway/hooks/base16-sway.sh ~/.config/base16-shell/hooks
+cp ~/.config/base16-sway/hooks/20_sway.sh ~/.config/base16-shell/hooks
 ```
 
 Re-run your base16 theme to execute the hook:
@@ -71,6 +71,12 @@ colors {
 If sway is running, the hook will send the message `swaymsg reload` to update
 the theme.
 
+## Waybar and Sway
+
+If you're also using [base16-waybar][github-waybar-repo-link], make sure the
+waybar hook runs first. Otherwise, sway might reload the config before waybar is
+updated.
+
 ## Other
 
 [Original repo][github-sway-repo-link]
@@ -78,3 +84,4 @@ the theme.
 [base16-home-link]: https://github.com/base16-project/home
 [sway-link]: https://swaywm.org
 [github-sway-repo-link]: https://github.com/rkubosz/base16-sway
+[github-waybar-repo-link]: https://github.com/rkubosz/base16-waybar
