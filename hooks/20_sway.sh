@@ -30,11 +30,14 @@ if [ -d "$BASE16_SWAY_THEME_PATH" ]; then
 	# Set current theme name
 	read -r current_theme_name <"$BASE16_SHELL_THEME_NAME_PATH"
 
-	ln -sf "$BASE16_SWAY_THEME_PATH/base16-$current_theme_name.config" "$BASE16_SHELL_SWAYCONF_PATH"
+	if ! [[ -L "$BASE16_SHELL_SWAYCONF_PATH" ]] || [[ "$(readlink -f "$BASE16_SHELL_SWAYCONF_PATH")" != "$BASE16_SWAY_THEME_PATH/base16-$current_theme_name.config" ]]; then
+		ln -sf "$BASE16_SWAY_THEME_PATH/base16-$current_theme_name.config" "$BASE16_SHELL_SWAYCONF_PATH"
+
+		# Send sway message to reload config
+		pid="$(pgrep sway)"
+		if [ -n "$pid" ]; then
+			swaymsg reload
+		fi
+	fi
 fi
 
-# Send sway message to reload config
-pid="$(pgrep sway)"
-if [ -n "$pid" ]; then
-	swaymsg reload
-fi
